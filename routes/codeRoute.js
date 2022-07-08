@@ -10,9 +10,9 @@ router.post('/', [
     check('language', 'Please specify the language').not().isEmpty()
 ], (req, res) => {
 
-    const errors = validationResult(req)
+    const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({errors: errors.array()})        
+        return res.status(400).json({errors: errors.array()});
     }
 
     var { code, language, input } = req.body;
