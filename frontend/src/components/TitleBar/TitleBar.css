@@ -1,0 +1,12 @@
+.title-bar {
+    color: white;
+    background-color: rgb(50, 29, 29);
+    border-bottom: 1px solid white;
+    padding: 0.5rem;
+}
+
+.title-name {
+    background: none;
+    color: white;
+    border: none;
+}

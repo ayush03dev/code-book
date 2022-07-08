@@ -14,9 +14,6 @@ function OutputBox({code, execute, loading}) {
     <>
       <div className="title">
         <span className="output">Output</span>
-        <Button className="submit-btn" variant="success">
-          Save
-        </Button>
         <Button className="submit-btn" variant="primary" disabled={loading.loading} onClick={onRun}>
           Run
         </Button>

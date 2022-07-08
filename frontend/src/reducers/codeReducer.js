@@ -1,4 +1,10 @@
-import { EXECUTE, UPDATE_CODE, UPDATE_INPUT } from "../actions/types";
+import {
+  EXECUTE,
+  UPDATE_CODE,
+  UPDATE_INFO,
+  UPDATE_INPUT,
+  UPDATE_TITLE,
+} from "../actions/types";
 
 const initialState = {
   code: `import java.util.*;
@@ -10,6 +16,8 @@ const initialState = {
   }`,
   input: "",
   output: "Waiting for code execution",
+  info: "",
+  title: "Unnamed Snippet",
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -20,10 +28,16 @@ export default function(state = initialState, action) {
       return { ...state, output: payload };
 
     case UPDATE_CODE:
-        return {...state, code: payload.code};
+      return { ...state, code: payload.code };
 
     case UPDATE_INPUT:
-        return {...state, input: payload.input};
+      return { ...state, input: payload.input };
+
+    case UPDATE_INFO:
+      return { ...state, info: payload.info };
+
+    case UPDATE_TITLE:
+      return { ...state, title: payload.title };
 
     default:
       return state;
