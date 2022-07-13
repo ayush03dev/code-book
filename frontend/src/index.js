@@ -11,6 +11,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <div id="auth-modal"></div>
     </Provider>
   </React.StrictMode>
 );

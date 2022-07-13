@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { v4 } = require("uuid");
 
 const snippetSchema = new mongoose.Schema({
     title: {

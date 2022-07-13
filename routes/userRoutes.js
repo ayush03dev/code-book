@@ -3,6 +3,29 @@ const User = require("../models/userModel");
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
+
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+
+  if (!mongoose.isObjectIdOrHexString(id)) {
+    return res.status(400).json({ message: "Invalid user id!" });
+  }
+
+  try {
+    const user = await User.findById(id).select("-password");
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: "Could not find user by that id!" });
+    }
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    return res.status(400).json({ message: "Invalid user id!" });
+  }
+});
 
 router.post(
   "/register",
@@ -49,7 +72,7 @@ router.post(
 
       res.json({ token });
     } catch (error) {
-      console.error(`${error.message}`.red.inverse);
+      console.error(`${error.message}`);
       return res.status(500).json({ message: "Server Error!", error });
     }
   }
@@ -64,6 +87,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.error(errors);
       return res.status(400).json({ errors: errors.array() });
     }
 
@@ -71,7 +95,12 @@ router.post(
 
     try {
       const user = await User.findOne({ email });
-      const check = await bcrypt.compare(user.password, password);
+
+      if (!user) {
+        return res.status(400).json({ message: "Invalid credentials!" });
+      }
+
+      const check = await bcrypt.compare(password, user.password);
 
       if (!check) {
         return res.status(400).json({ message: "Invalid credentials!" });
@@ -83,6 +112,8 @@ router.post(
         },
         process.env.JWT_SECRET
       );
+
+      console.log(token);
 
       return res.json({ token });
     } catch (error) {

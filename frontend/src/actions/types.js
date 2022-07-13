@@ -1,8 +1,26 @@
-export const SET_LOADING = 'SET_LOADING';
-export const REMOVE_LOADING = 'REMOVE_LOADING';
+export const SET_LOADING = "SET_LOADING";
+export const REMOVE_LOADING = "REMOVE_LOADING";
 
-export const EXECUTE = 'EXECUTE';
-export const UPDATE_CODE = 'UPDATE_CODE';
-export const UPDATE_INPUT = 'UPDATE_INPUT';
-export const UPDATE_INFO = 'UPDATE_INFO';
-export const UPDATE_TITLE = 'UPDATE_TITLE';
+export const EXECUTE = "EXECUTE";
+
+export const UPDATE_CODE = "UPDATE_CODE";
+export const UPDATE_INPUT = "UPDATE_INPUT";
+export const UPDATE_INFO = "UPDATE_INFO";
+export const UPDATE_TITLE = "UPDATE_TITLE";
+
+export const OPEN_LOGIN = "OPEN_LOGIN";
+export const CLOSE_LOGIN = "CLOSE_LOGIN";
+
+export const OPEN_REGISTER = "OPEN_REGISTER";
+export const CLOSE_REGISTER = "CLOSE_REGISTER";
+
+export const LOGIN_REQUEST = "LOGIN_REQUEST";
+export const LOGIN_FAILED = "LOGIN_FAILED";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+
+export const REGISTER_REQUEST = "REGISTER_REQUEST";
+export const REGISTER_FAILED = "REGISTER_FAILED";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+
+export const SAVE_SNIPPET = "SAVE_SNIPPET";
+export const RETRIEVE_SNIPPET = "RETRIEVE_SNIPPET";

@@ -5,8 +5,10 @@ const snippetRouter = require('./routes/snippetRoute');
 const dotenv = require('dotenv');
 const util = require("util");
 const app = express();
+const connectDb = require('./config/db');
 
 dotenv.config();
+connectDb();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
