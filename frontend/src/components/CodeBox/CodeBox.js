@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { updateCode } from "../../actions/codeActions";
 import "./CodeBox.css";
 
-function CodeBox({ updateCode }) {
+function CodeBox({ updateCode, defaultValue }) {
   const editorRef = useRef(null);
 
   function handleEditorDidMount(editor, monaco) {
@@ -33,7 +33,7 @@ function CodeBox({ updateCode }) {
         height="25rem"
         theme="vs-dark"
         defaultLanguage="java"
-        defaultValue={defaultCode}
+        defaultValue={defaultValue ? defaultValue : defaultCode }
         onMount={handleEditorDidMount}
         onChange={handleChange}
       />

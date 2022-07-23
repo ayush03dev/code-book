@@ -1,5 +1,6 @@
 import {
   EXECUTE,
+  RETRIEVE_SNIPPET_SUCCESS,
   UPDATE_CODE,
   UPDATE_INFO,
   UPDATE_INPUT,
@@ -16,7 +17,7 @@ const initialState = {
   }`,
   input: "",
   output: "Waiting for code execution",
-  info: "",
+  description: "Default Description",
   title: "Unnamed Snippet",
 };
 
@@ -34,10 +35,20 @@ export default function(state = initialState, action) {
       return { ...state, input: payload.input };
 
     case UPDATE_INFO:
-      return { ...state, info: payload.info };
+      return { ...state, description: payload.description };
 
     case UPDATE_TITLE:
       return { ...state, title: payload.title };
+    case RETRIEVE_SNIPPET_SUCCESS:
+      const { code, input, output, description, title } = action.payload;
+
+      return {
+        code,
+        input,
+        output,
+        description,
+        title,
+      };
 
     default:
       return state;

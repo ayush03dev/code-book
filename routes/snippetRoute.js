@@ -32,6 +32,7 @@ router.post(
     [
       check("description", "Enter description").not().isEmpty(),
       check("code", "Enter code").not().isEmpty(),
+      check("title", "Enter title").not().isEmpty()
     ],
     auth,
   ],
@@ -42,7 +43,7 @@ router.post(
     }
 
     const user = req.user;
-    const { description, code, input } = req.body;
+    const { description, code, input, title } = req.body;
 
     try {
       const snippet = new Snippet({
@@ -50,6 +51,7 @@ router.post(
         description,
         code,
         input: input ? input : "",
+        title
       });
       await snippet.save();
       res.json({ message: "Snippet saved!" });

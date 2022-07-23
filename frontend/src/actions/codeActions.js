@@ -18,8 +18,8 @@ export const updateInput = (input) => (dispatch) => {
   dispatch({ type: UPDATE_INPUT, payload: { input } });
 };
 
-export const updateInfo = (info) => (dispatch) => {
-  dispatch({ type: UPDATE_INFO, payload: { info } });
+export const updateInfo = (description) => (dispatch) => {
+  dispatch({ type: UPDATE_INFO, payload: { description } });
 };
 
 export const updateTitle = (title) => (dispatch) => {

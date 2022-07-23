@@ -1,4 +1,5 @@
 import axios from "axios";
+import { closeLogin, closeRegister } from "./modalActions";
 import { LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILED, REGISTER_REQUEST, REGISTER_SUCCESS } from "./types";
 
 export const login = (email, password) => async (dispatch) => {
@@ -14,6 +15,7 @@ export const login = (email, password) => async (dispatch) => {
     const resp = await axios.post("/user/login", body, config);
     console.log(resp.data);
     dispatch({ type: LOGIN_SUCCESS, payload: resp.data });
+    dispatch(closeLogin());
   } catch (error) {
     console.error(error);
     dispatch({ type: LOGIN_FAILED, payload: { error } });
@@ -33,6 +35,7 @@ export const register = (email, password) => async (dispatch) => {
       const resp = await axios.post("/user/register", body, config);
       dispatch({ type: REGISTER_SUCCESS, payload: resp.data });
       console.log(resp.data);
+      closeRegister();
     } catch (error) {
       console.error(error);
       dispatch({ type: REGISTER_FAILED, payload: { error } });

@@ -24,8 +24,8 @@ export default function(state = initialState, action) {
 
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
-      return { auth: true, token: payload.token };
+      return {...state, auth: true, token: payload.token };
     default:
-      return initialState;
+      return state;
   }
 }
