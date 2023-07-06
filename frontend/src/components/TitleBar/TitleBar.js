@@ -38,6 +38,7 @@ function TitleBar({
             defaultValue={defaultValue}
             onChange={onChange}
             disabled={isSnippet}
+            style={{ fontSize: '2rem' }}
           />
         </Col>
         {!isSnippet ? (

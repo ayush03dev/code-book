@@ -8,5 +8,7 @@
 
 .nav-span {
     font-size: 2rem;
-    padding: 2rem;
+    padding: 1.5rem;
+    color: #f1fa8c !important;
+    font-weight: bolder;
 }

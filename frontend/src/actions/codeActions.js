@@ -39,11 +39,9 @@ export const execute = (code, input, language) => async (dispatch) => {
   };
   const id = v4();
   dispatch({ type: SET_LOADING, payload: { id } });
-  console.log(code);
   const body = JSON.stringify({ code, input, language });
   try {
     const resp = await axios.post("/code", body, config);
-
     dispatch({ type: REMOVE_LOADING, payload: { id } });
     dispatch({ type: EXECUTE, payload: resp.data.stdout });
   } catch (err) {

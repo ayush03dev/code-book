@@ -21,6 +21,7 @@ function InfoBox({ text, disabled, updateInfo }) {
         disabled={disabled}
         as="textarea"
         className="text-white"
+        spellCheck="false"
       />
     </div>
   );

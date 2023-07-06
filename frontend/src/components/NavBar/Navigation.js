@@ -9,7 +9,7 @@ function Navigation() {
   return (
     <div className="navigation">
       <Navbar collapseOnSelect expand="lg" id="responsive-navbar-nav" variant="dark" >
-        <Navbar.Brand href="#home" className="nav-span">Code Book</Navbar.Brand>
+        <Navbar.Brand className="nav-span">Code Book</Navbar.Brand>
 
       </Navbar>
     </div>

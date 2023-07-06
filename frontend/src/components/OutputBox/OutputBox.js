@@ -19,7 +19,9 @@ function OutputBox({ code, execute, loading }) {
         </Button>
       </div>
 
-      <div className="output-box text-white" style={{ background: "#1e1e1e" }}>{loading.loading ? "Executing..." : code.output}</div>
+      <div className="output-box text-white" style={{ background: "#1e1e1e", overflow: "auto" }}>{loading.loading ? "Executing..."
+        : code.output ? [code.output.split("\n").map(
+          (line, idx) => <p>{line}</p>)] : <></>} </div>
     </>
   );
 }
