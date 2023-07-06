@@ -4,6 +4,7 @@ import {
   UPDATE_CODE,
   UPDATE_INFO,
   UPDATE_INPUT,
+  UPDATE_LANGUAGE,
   UPDATE_TITLE,
 } from "../actions/types";
 
@@ -19,10 +20,11 @@ const initialState = {
   output: "Waiting for code execution",
   description: "Default Description",
   title: "Unnamed Snippet",
+  language: "java",
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   const payload = action.payload;
   switch (action.type) {
     case EXECUTE:
@@ -39,8 +41,11 @@ export default function(state = initialState, action) {
 
     case UPDATE_TITLE:
       return { ...state, title: payload.title };
+
+    case UPDATE_LANGUAGE:
+      return { ...state, language: payload.language };
     case RETRIEVE_SNIPPET_SUCCESS:
-      const { code, input, output, description, title } = action.payload;
+      const { code, input, output, description, title, language } = action.payload;
 
       return {
         code,
@@ -48,6 +53,7 @@ export default function(state = initialState, action) {
         output,
         description,
         title,
+        language
       };
 
     default:

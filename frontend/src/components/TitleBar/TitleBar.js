@@ -11,7 +11,7 @@ function TitleBar({
   updateTitle,
   openLogin,
   auth,
-  code: { title, description, code, input },
+  code: { title, description, code, language, input },
   saveSnippet,
   isSnippet,
   defaultValue
@@ -25,7 +25,7 @@ function TitleBar({
   };
 
   const onSaveSnippet = () => {
-    saveSnippet(code, title, description, input, auth.token);
+    saveSnippet(code, language, title, description, input, auth.token);
   };
 
   return (
@@ -37,6 +37,7 @@ function TitleBar({
             className="title-name"
             defaultValue={defaultValue}
             onChange={onChange}
+            disabled={isSnippet}
           />
         </Col>
         {!isSnippet ? (

@@ -7,6 +7,7 @@ import {
   UPDATE_INPUT,
   UPDATE_INFO,
   UPDATE_TITLE,
+  UPDATE_LANGUAGE,
 } from "./types";
 import { v4 } from "uuid";
 
@@ -26,7 +27,11 @@ export const updateTitle = (title) => (dispatch) => {
   dispatch({ type: UPDATE_TITLE, payload: { title } });
 };
 
-export const execute = (code, input) => async (dispatch) => {
+export const updateLanguage = (language) => (dispatch) => {
+  dispatch({ type: UPDATE_LANGUAGE, payload: { language } });
+}
+
+export const execute = (code, input, language) => async (dispatch) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +39,8 @@ export const execute = (code, input) => async (dispatch) => {
   };
   const id = v4();
   dispatch({ type: SET_LOADING, payload: { id } });
-  const body = JSON.stringify({ code, input, language: "java" });
+  console.log(code);
+  const body = JSON.stringify({ code, input, language });
   try {
     const resp = await axios.post("/code", body, config);
 

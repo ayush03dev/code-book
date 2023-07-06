@@ -11,11 +11,11 @@ dotenv.config();
 connectDb();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   return res.send("API Running!");
-})
+});
 
 app.use('/code', codeRouter);
 app.use('/user', userRouter);

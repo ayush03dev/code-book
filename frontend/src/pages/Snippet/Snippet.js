@@ -11,6 +11,7 @@ import RegisterModal from "../../components/AuthModal/RegisterModal/RegisterModa
 import { connect } from "react-redux";
 import { retrieveSnippet } from "../../actions/snippetActions";
 import { useParams } from "react-router-dom";
+import Navigation from "../../components/NavBar/Navigation";
 
 function Snippet({ snippet, retrieveSnippet }) {
   const { id } = useParams();
@@ -21,6 +22,8 @@ function Snippet({ snippet, retrieveSnippet }) {
 
   return (
     <>
+      <Navigation />
+
       {snippet.loading ? (
         <Spinner />
       ) : (
@@ -28,11 +31,11 @@ function Snippet({ snippet, retrieveSnippet }) {
           <TitleBar isSnippet={true} defaultValue={snippet.title} />
           <Row>
             <Col lg={6}>
-              <InfoBox defaultValue={snippet.description} disabled={true} />
+              <InfoBox text={snippet.description} disabled={true} />
             </Col>
 
             <Col lg={6}>
-              <CodeBox defaultValue={snippet.code} />
+              <CodeBox defaultValue={snippet.code} snippetLang={snippet.language} />
             </Col>
           </Row>
           <br />

@@ -44,7 +44,7 @@ router.post(
     }
 
     const { email, username, password } = req.body;
-
+    console.log(req);
     try {
       const emailTaken = await User.findOne({ email });
       if (emailTaken) {
@@ -62,6 +62,7 @@ router.post(
       const user = new User({ email, username, password: hashed });
 
       await user.save();
+      console.log(user);
 
       const token = jwt.sign(
         {

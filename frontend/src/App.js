@@ -6,13 +6,14 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Snippet from "./pages/Snippet/Snippet";
+import "./App.css";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/snippet/:id" element={<Snippet />} /> 
+        <Route path="/snippet/:id" element={<Snippet />} />
       </Routes>
     </Router>
   );

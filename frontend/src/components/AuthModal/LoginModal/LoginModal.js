@@ -5,12 +5,12 @@ import { login } from "../../../actions/authActions";
 import { closeLogin, openRegister } from "../../../actions/modalActions";
 
 function LoginModal({ loginModal, closeLogin, openRegister, login }) {
-  if (!loginModal) return <></>;
   const defaultState = { email: "", password: "" };
   const [fields, setFields] = useState(defaultState);
+  if (!loginModal) return <></>;
 
   const onChange = (event) => {
-    setFields({...fields, [event.target.name]: event.target.value});
+    setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
   const handleClose = () => {

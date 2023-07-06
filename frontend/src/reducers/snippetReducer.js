@@ -7,6 +7,7 @@ import {
 const initialState = {
   loading: false,
   code: "",
+  language: "",
   input: "",
   output: "",
   description: "",
@@ -14,16 +15,17 @@ const initialState = {
   success: false,
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case RETRIEVE_SNIPPET_REQUEST:
       return { ...state, loading: true };
 
     case RETRIEVE_SNIPPET_SUCCESS:
-      const { code, input, output, description, title } = action.payload;
+      const { code, input, output, description, title, language } = action.payload;
 
       return {
         code,
+        language,
         input,
         output,
         description,

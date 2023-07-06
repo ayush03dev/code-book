@@ -18,6 +18,11 @@ const snippetSchema = new mongoose.Schema({
         required: true
     },
 
+    language: {
+        type: String,
+        required: true
+    },
+
     input: {
         type: String
     },

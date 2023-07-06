@@ -3,6 +3,8 @@ import {
   CLOSE_REGISTER,
   OPEN_LOGIN,
   CLOSE_LOGIN,
+  OPEN_LINK,
+  CLOSE_LINK,
 } from "./types";
 
 export const openRegister = () => (dispatch) => {
@@ -20,3 +22,11 @@ export const openLogin = () => (dispatch) => {
 export const closeLogin = () => (dispatch) => {
   dispatch({ type: CLOSE_LOGIN });
 };
+
+export const openLink = () => (dispatch) => {
+  dispatch({ type: OPEN_LINK });
+}
+
+export const closeLink = () => (dispatch) => {
+  dispatch({ type: CLOSE_LINK });
+}

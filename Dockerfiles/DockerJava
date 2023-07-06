@@ -1,0 +1,4 @@
+FROM alpine
+WORKDIR /home/app
+RUN apk update
+RUN apk add openjdk11

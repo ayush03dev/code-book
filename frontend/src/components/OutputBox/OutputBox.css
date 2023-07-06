@@ -1,12 +1,13 @@
 .title {
     height: 3rem;
-    background-color: rgb(56, 50, 50);
+    background-color: #44475a;
     padding: 0.5rem;
 }
 
 .output-box {
     height: 10rem;
     background-color: #212529;
+    padding: 0.5rem;
 }
 
 .output {

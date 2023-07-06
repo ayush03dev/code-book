@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { updateInfo } from "../../actions/codeActions";
 import "./InfoBox.css";
 
-function InfoBox({ defaultValue, disabled, updateInfo }) {
+function InfoBox({ text, disabled, updateInfo }) {
   const onChange = (event) => {
     updateInfo(event.target.value);
   };
@@ -16,11 +16,11 @@ function InfoBox({ defaultValue, disabled, updateInfo }) {
       </div>
       <Form.Control
         onChange={onChange}
-        style={{ height: "100%" }}
-        value={defaultValue}
+        style={{ height: "100%", resize: "none", border: "none", background: '#1e1e1e' }}
+        defaultValue={text}
         disabled={disabled}
         as="textarea"
-        className="bg-dark text-white"
+        className="text-white"
       />
     </div>
   );

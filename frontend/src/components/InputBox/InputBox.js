@@ -18,8 +18,9 @@ function InputBox({ updateInput, defaultValue }) {
       <Form.Control
         as="textarea"
         onChange={onChange}
-        className="bg-dark text-white input-box "
+        className="text-white input-box "
         defaultValue={defaultValue}
+        style={{ resize: "none", border: "none", background: "#1e1e1e" }}
       />
     </>
   );

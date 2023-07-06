@@ -32,6 +32,7 @@ router.post(
     [
       check("description", "Enter description").not().isEmpty(),
       check("code", "Enter code").not().isEmpty(),
+      check("language", "Enter language").not().isEmpty(),
       check("title", "Enter title").not().isEmpty()
     ],
     auth,
@@ -43,18 +44,19 @@ router.post(
     }
 
     const user = req.user;
-    const { description, code, input, title } = req.body;
+    const { description, code, input, title, language } = req.body;
 
     try {
       const snippet = new Snippet({
         postedBy: user,
         description,
         code,
+        language,
         input: input ? input : "",
         title
       });
-      await snippet.save();
-      res.json({ message: "Snippet saved!" });
+      const id = await snippet.save();
+      res.json(id);
     } catch (error) {
       console.error(error);
       return res.status(500).json({ message: error.message, error });

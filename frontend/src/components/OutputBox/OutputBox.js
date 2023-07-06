@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import { execute } from "../../actions/codeActions";
 import "./OutputBox.css";
 
-function OutputBox({code, execute, loading}) {
+function OutputBox({ code, execute, loading }) {
 
   const onRun = () => {
-    execute(code.code, code.input);
+    execute(code.code, code.input, code.language);
   }
 
   return (
@@ -19,7 +19,7 @@ function OutputBox({code, execute, loading}) {
         </Button>
       </div>
 
-      <div className="output-box bg-dark text-white">{loading.loading ? "Executing..." : code.output}</div>
+      <div className="output-box text-white" style={{ background: "#1e1e1e" }}>{loading.loading ? "Executing..." : code.output}</div>
     </>
   );
 }
@@ -29,4 +29,4 @@ const mapStateToProps = (state) => ({
   loading: state.loading
 });
 
-export default connect(mapStateToProps, {execute})(OutputBox);
+export default connect(mapStateToProps, { execute })(OutputBox);

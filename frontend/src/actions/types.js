@@ -7,12 +7,16 @@ export const UPDATE_CODE = "UPDATE_CODE";
 export const UPDATE_INPUT = "UPDATE_INPUT";
 export const UPDATE_INFO = "UPDATE_INFO";
 export const UPDATE_TITLE = "UPDATE_TITLE";
+export const UPDATE_LANGUAGE = "UPDATE_LANGUAGE";
 
 export const OPEN_LOGIN = "OPEN_LOGIN";
 export const CLOSE_LOGIN = "CLOSE_LOGIN";
 
 export const OPEN_REGISTER = "OPEN_REGISTER";
 export const CLOSE_REGISTER = "CLOSE_REGISTER";
+
+export const OPEN_LINK = "OPEN_LINK";
+export const CLOSE_LINK = "CLOSE_LINK";
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_FAILED = "LOGIN_FAILED";
