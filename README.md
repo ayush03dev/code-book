@@ -58,3 +58,11 @@ Users can provide input parameters, enabling comprehensive testing and debugging
    npm run dev
    ```
 8. Access the page at `http://localhost:3000`
+
+
+## Screenshots
+
+![Screenshot from 2023-07-06 12-26-59](https://github.com/ayush03dev/code-book/assets/12969145/6c639f11-ba5c-4754-9cb2-29e186439b42)
+
+![Screenshot from 2023-07-06 12-27-24](https://github.com/ayush03dev/code-book/assets/12969145/8e666168-975d-4aab-87d9-e47194274370)
+
