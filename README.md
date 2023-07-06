@@ -40,8 +40,21 @@ Users can provide input parameters, enabling comprehensive testing and debugging
     MONGO_URI=
     JWT_SECRET=
     ```
-6. Start the server
+5. Build Docker Images
+    ```sh
+    cd Dockerfiles
+    ```
+    ```sh
+    docker build -t java-exec -f DockerJava .
+    ```
+    ```sh
+    docker build -t python-exec -f DockerPython .
+    ```
+    ```sh
+    docker build -t cpp-exec -f DockerCPP .
+    ```    
+7. Start the server
    ```sh 
    npm run dev
    ```
-7. Access the page at `http://localhost:3000`
+8. Access the page at `http://localhost:3000`
